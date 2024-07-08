@@ -1,0 +1,133 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<title>@ViewData["Title"] - TestSite.Web</title>
+	<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+	<link asp-append-version="true" href="~/css/site.css" rel="stylesheet" />
+	<meta charset="utf-8" />
+		<meta http-equiv="x-ua-compatible" content="ie=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="description" content="" />
+	
+		<!-- Site Title -->
+		<title>Gerold - Personal Portfolio HTML5 Template</title>
+	
+		<!-- Place favicon.ico in the root directory -->
+		<link rel="apple-touch-icon" href="~/img/favicon.png" />
+		<link rel="shortcut icon" type="image/png" href="~/img/favicon.png" />
+	
+		<!-- CSS here -->
+		<link rel="stylesheet" href="~/css/animate.min.css">
+		<link rel="stylesheet" href="~/css/bootstrap.min.css">
+		<link rel="stylesheet" href="~/css/font-awesome-pro.min.css">
+		<link rel="stylesheet" href="~/css/flaticon_gerold.css">
+		<link rel="stylesheet" href="~/css/nice-select.css">
+		<link rel="stylesheet" href="~/css/backToTop.css">
+		<link rel="stylesheet" href="~/css/owl.carousel.min.css">
+		<link rel="stylesheet" href="~/css/odometer-theme-default.css">
+		<link rel="stylesheet" href="~/css/magnific-popup.css">
+	
+		<link rel="stylesheet" href="~/css/main.css">
+		<link rel="stylesheet" href="~/css/responsive.css">
+</head>
+<body>
+	<!-- start: Back To Top -->
+	<div class="progress-wrap" id="scrollUp">
+		<svg class="progress-circle svg-content" width="100%" height="100%" viewBox="-1 -1 102 102">
+			<path d="M50,1 a49,49 0 0,1 0,98 a49,49 0 0,1 0,-98" />
+		</svg>
+	</div>
+	<!-- end: Back To Top -->
+	
+	<!-- HEADER START -->
+	<header class="tj-header-area header-2 header-sticky sticky-out" style="visibility: hidden">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 d-flex flex-wrap align-items-center">
+
+					<div class="logo-box">
+						<a asp-page="Index">
+							<img src="~/img/logo/logo.png" alt="">
+						</a>
+					</div>
+
+					<div class="header-info-list d-none d-md-inline-block">
+						<ul class="ul-reset">
+							<li><a href="mailto:mail@gerolddesign.com">mail@gerolddesign.com</a></li>
+						</ul>
+					</div>
+
+					<div class="header-menu">
+						<nav>
+							<ul>
+								<li><a asp-area="Identity" asp-page="Account/Login">Login</a></li>
+								<li><a href="#works-section">Works</a></li>
+								<li><a href="#resume-section">Resume</a></li>
+								<li><a href="#skills-section">Skills</a></li>
+								<li><a href="#testimonials-section">Testimonials</a></li>
+								<li><a href="#contact-section">Contact</a></li>
+							</ul>
+						</nav>
+					</div>
+
+					<div class="header-button">
+						<a href="#" class="btn tj-btn-primary">Hire me!</a>
+					</div>
+
+					<div class="menu-bar d-lg-none">
+						<button>
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<script>
+		let headers = document.getElementsByTagName("header");
+		setTimeout(() => {
+			headers[0].style.visibility = "visible";
+		}, 1000);
+	</script>
+	<!-- HEADER END -->
+
+	<div class="site-content" id="content">
+		<main class="pb-3" role="main">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="footer text-muted" style="background-color: var(--tj-black-2);">
+		<div class="container" style="color: white">
+			&copy; 2024 - TestSite.Web - <a style="color: white" asp-area="" asp-page="/Privacy">Privacy</a>
+		</div>
+	</footer>
+
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script asp-append-version="true" src="~/js/site.js"></script>
+
+	@await RenderSectionAsync("Scripts", required: false)
+	<script src="~/js/jquery.min.js"></script>
+	<script src="~/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/nice-select.min.js"></script>
+	<script src="~/js/backToTop.js"></script>
+	<script src="~/js/smooth-scroll.js"></script>
+	<script src="~/js/appear.min.js"></script>
+	<script src="~/js/wow.min.js"></script>
+	<script src="~/js/gsap.min.js"></script>
+	<script src="~/js/one-page-nav.js"></script>
+	<script src="~/js/lightcase.js"></script>
+	<script src="~/js/owl.carousel.min.js"></script>
+	<script src="~/js/isotope.pkgd.min.js"></script>
+	<script src="~/js/odometer.min.js"></script>
+	<script src="~/js/magnific-popup.js"></script>
+	<script src="~/js/main.js"></script>
+
+</body>
+</html>

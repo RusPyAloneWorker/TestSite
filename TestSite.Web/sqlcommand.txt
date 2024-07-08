@@ -1,0 +1,25 @@
+﻿BEGIN;
+
+INSERT INTO public."Tests"(
+	"Id", "Name", "Description", "TimeSpan")
+	VALUES ('b64f71d3-65fd-4a7b-9506-5c7108afb7bb', 'Математика', 'Тренируй матешу', '0:40');
+
+
+INSERT INTO public."Questions"(
+	"Id", "HasMultipleAnswers", "Text", "TestId")
+	VALUES ('b64f71d3-65fd-4a7b-9506-5c7108afb7bb', false, '2 + 2 = ?', 'b64f71d3-65fd-4a7b-9506-5c7108afb7bb');
+
+
+INSERT INTO public."QuestionOptions"(
+	"Id", "Order", "Text", "IsCorrect", "QuestionId")
+	VALUES ('b64f71d3-65fd-4a7b-9506-5c7108afb7bb', 2, '4', true, 'b64f71d3-65fd-4a7b-9506-5c7108afb7bb');
+
+INSERT INTO public."QuestionOptions"(
+	"Id", "Order", "Text", "IsCorrect", "QuestionId")
+	VALUES ('9a420f41-accd-4036-bc7b-c7af95bf5b69', 1, '2', false, 'b64f71d3-65fd-4a7b-9506-5c7108afb7bb');
+
+INSERT INTO public."QuestionOptions"(
+	"Id", "Order", "Text", "IsCorrect", "QuestionId")
+	VALUES ('05f4e034-7fa2-44c3-9d95-c3c19034d683', 0, '1', false, 'b64f71d3-65fd-4a7b-9506-5c7108afb7bb');
+
+COMMIT;

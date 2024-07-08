@@ -1,0 +1,22 @@
+﻿.question {
+    margin-bottom: 20px;
+}
+.options {
+    list-style: none;
+    padding: 0;
+}
+.options li {
+    margin-bottom: 10px;
+}
+.submit-btn {
+    margin-top: 20px;
+}
+.test_creation-form-content {
+    align-items: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.test_creation-form-content > * {
+    margin: 50px;
+}

@@ -1,0 +1,80 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+<div class="text-center" style="height: 200vh">
+	<partial name="Shared/_HeaderPartial"/>
+	
+	<section style="height: 100vh" class="hero-section d-flex align-items-center" id="intro">
+				<div class="intro_text">
+					<svg viewBox="0 0 1320 300">
+						<text x="50%" Y="50%" text-anchor="middle">
+							SOMEE
+						</text>
+					</svg>
+				</div>
+		<div class="container">
+			<div class="row align-items-center">
+				<div class="col-md-6">
+					<div class="hero-content-box">
+						<span class="hero-sub-title wow fadeInLeft" data-wow-delay="1.1s">Create your own test</span>
+						<h1 class="hero-title wow fadeInLeft" data-wow-delay="1.2s">Share your test<br>Share results
+						</h1>
+	
+						<div class="hero-image-box d-md-none text-center wow fadeInRight" data-wow-delay="1.3s">
+							<img src="~/img/hero/me.png" alt="">
+						</div>
+	
+						<p class="lead wow fadeInLeft" data-wow-delay="1.4s">Pass the test in a limited time</p>
+					</div>
+				</div>
+				<div class="col-md-6 d-none d-md-block">
+					<div class="hero-image-box text-center wow fadeInRight" data-wow-delay="1.5s">
+						<img src="https://www.adv4life.com/wp-content/uploads/2012/10/teen-taking-exam.jpg" alt="">
+					</div>
+				</div>
+			</div>
+	
+			<div class="funfact-area">
+				<div class="row" style="justify-content: center">
+					<div class="col-6 col-lg-3">
+						<div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+							<div class="number"><span class="odometer" data-count="14">0</span></div>
+							<div class="text">Number of <br>Users</div>
+						</div>
+					</div>
+					<div class="col-6 col-lg-3">
+						<div class="funfact-item d-flex flex-column flex-sm-row flex-wrap align-items-center">
+							<div class="number"><span class="odometer" data-count="50">0</span>+</div>
+							<div class="text">Amount of <br>Tests</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
+	<section class="card-section">
+		<div class="section-header text-center">
+			<h2 class="section-title wow fadeInUp" data-wow-delay=".3s" style="visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Next step</h2>
+		</div>
+		<div class="row">
+			<div class="card-item wow fadeInUp main-button" data-wow-delay=".5s">
+				<a class="col-lg-4 col-md-6" asp-page="CreateTest">
+					<div class="card-content">
+						<h3 class="card-title">Create test</h3>
+					</div>
+				</a>
+			</div>
+			<div class="card-item wow fadeInUp main-button" data-wow-delay=".5s">
+				<a class="col-lg-4 col-md-6" href="#">
+					<div class="card-content">
+						<h3 class="card-title">Pass test</h3>
+					</div>
+				</a>
+			</div>
+		</div>
+	</section>
+</div>

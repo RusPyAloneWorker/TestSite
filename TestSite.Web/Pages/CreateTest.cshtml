@@ -1,0 +1,140 @@
+﻿@page
+@model CreateTestModel
+@{
+	ViewData["Title"] = "Create Test";
+}
+
+<style src="~/css/test-creation.css"></style>
+
+<div class="text-center" style="height: 9000px">
+	<div class="test_creation-intro">
+		<section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg" data-bg-color="#140C1C" style='background-image: url("~/img/breadcrumb/breadcrumb-bg.jpg"); background-color: rgb(20, 12, 28);'>
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumb_content d-flex flex-column align-items-center">
+							<h2 class="title wow fadeInUp"  data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Test creation</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	
+	<div class="test_creation-form-wrapper column" style="margin-top: 50px">
+		<form class="test_creation-form-content" method="POST">
+			<span class="text-danger" asp-validation-for="Test.Questions"></span>
+			@* @Html.ValidationMessageFor(x => x.Test.Questions,"", new { @class = "text-danger" }) *@
+			<input asp-for="Test.Title" class="property-input" placeholder="Title" />
+			<span class="text-danger" asp-validation-for="Test.Title"></span>
+			<textarea name="Test.Description" class="property-input" placeholder="Description"></textarea>
+			@* <textarea asp-for="Test.Description" class="property-input" placeholder="Description"></textarea> *@
+			<span class="text-danger" asp-validation-for="Test.Description"></span>
+			@* @Html.ValidationMessageFor(x => x.Test.Description,"Required", new { @class = "text-danger" }) *@
+			<input asp-for="Test.TimeSpan" class="property-input" placeholder="Minutes to do the test" />
+			@* @Html.ValidationMessageFor(x => x.Test.TimeSpan,"Required", new { @class = "text-danger" }) *@
+			<span class="text-danger" asp-validation-for="Test.TimeSpan"></span>
+			<div id="questions-container"></div>
+			<button class="btn tj-btn-primary question-btn" type="button" onclick="addQuestion()">Add new question</button>
+			<div class="delete-question-field">
+				<button class="btn tj-btn-primary " type="button" onclick="removeQuestionById()">Delete question</button>
+				<input class="property-input" type="number" id="remove-question-id" placeholder="Question's number">
+			</div>
+			<button class="btn tj-btn-primary" type="submit">Create</button>
+		</form>
+	</div>
+</div>
+
+<script>
+	let questionCount = 0;
+	
+    function addQuestion() {
+            questionCount++;
+			let questionIndex = questionCount - 1;
+            const questionContainer = document.createElement('div');
+            questionContainer.classList.add('question');
+            questionContainer.id = `question-${questionCount}`;
+            questionContainer.innerHTML = `
+				<div class="question-section">
+					<label for="questions[${questionCount}].text">Question ${questionCount}</label>
+					<input class="property-input" type="text" id="questions[${questionCount}].text" name="Test.Questions[${questionIndex}].Text">
+					<div class="has-multiple-answers-field">
+						<input class="checkbox-correct-answer" value="true" type="checkbox" id="questions[${questionCount}].hasMultipleAnswers" name="Test.Questions[${questionIndex}].HasMultipleAnswers">
+						<label for="questions[${questionIndex}].hasMultipleAnswers">Can have multiple answers</label>
+					</div>
+					<ul class="options" id="answers-${questionCount}">
+						<li class="question-option">
+							<input class="checkbox-correct-answer" value="true" type="checkbox" id="questions[${questionCount}].answers[0].IsCorrect" name="Test.Questions[${questionIndex}].QuestionOptions[0].IsCorrect">
+						<input class="property-input" type="text" id="questions[${questionCount}].answers[0].text" name="Test.Questions[${questionIndex}].QuestionOptions[0].Text" placeholder="Option 1" required>
+						</li>
+					</ul>
+					<button class="btn tj-btn-primary question-btn" type="button" onclick="addAnswer(${questionCount})">Add option</button>
+					<button class="btn tj-btn-primary question-btn" type="button" onclick="removeLastAnswer(${questionCount})">Remove last option</button>
+				</div>
+            `;
+			
+            document.getElementById('questions-container').appendChild(questionContainer);
+        }
+
+    function addAnswer(questionId) {
+			let questionIndex = questionId - 1;
+            const answersContainer = document.getElementById(`answers-${questionId}`);
+            const answerCount = answersContainer.getElementsByTagName('li').length;
+            const answerItem = document.createElement('li');
+			answerItem.classTitle = "question-option"
+            answerItem.innerHTML = `
+                <input class="checkbox-correct-answer" type="checkbox" value="true" id="questions[${questionId}].answers[${answerCount}].isCorrect" name="Test.Questions[${questionIndex}].QuestionOptions[${answerCount}].IsCorrect">
+                <input class="property-input" type="text" id="questions[${questionId}].answers[${answerCount}].text" name="Test.Questions[${questionIndex}].QuestionOptions[${answerCount}].Text" placeholder="Option  ${answerCount + 1}" required>
+            `;
+            answersContainer.appendChild(answerItem);
+        }
+
+        function removeLastAnswer(questionId) {
+            const answersContainer = document.getElementById(`answers-${questionId}`);
+            const answerItems = answersContainer.getElementsByTagTitle('li');
+            if (answerItems.length > 0) {
+                answersContainer.removeChild(answerItems[answerItems.length - 1]);
+            }
+        }
+
+        function removeQuestionById() {
+            const questionId = document.getElementById('remove-question-id').value;
+            const questionContainer = document.getElementById(`question-${questionId}`);
+            if (questionContainer) {
+                questionContainer.parentNode.removeChild(questionContainer);
+				updateQuestionNumbers();
+				questionCount--;
+            } else {
+                alert(`Question number ${questionId} not found.`);
+            }
+        }
+		
+		function updateQuestionNumbers() {
+        	const questions = document.querySelectorAll('.question');
+			let id = 0;
+        	questions.forEach((question) => {
+				id++;
+        	    const newId = id;
+        	    question.id = `question-${newId}`;
+        	    const label = question.querySelector('label');
+        	    const textInput = question.querySelector('input[type="text"]');
+        	    const answersContainer = question.querySelector('.options');
+        	    
+        	    label.setAttribute('for', `questions[${newId}].text`);
+        	    label.textContent = `Question ${newId}`;
+        	    textInput.id = `questions[${newId}].text`;
+        	    textInput.name = `Questions[${newId - 1}].Text`;
+        	
+        	    const answerItems = answersContainer.querySelectorAll('li');
+        	    answerItems.forEach((answerItem, answerIndex) => {
+        	        const checkbox = answerItem.querySelector('input[type="checkbox"]');
+        	        const answerText = answerItem.querySelector('input[type="text"]');
+        	
+        	        checkbox.id = `questions[${newId}].answers[${answerIndex}].isCorrect`;
+        	        checkbox.name = `Questions[${newId - 1}].QuestionOptions[${answerIndex}].IsCorrect`;
+        	        answerText.id = `questions[${newId}].answers[${answerIndex}].text`;
+        	        answerText.name = `Questions[${newId - 1}].QuestionOptions[${answerIndex}].Text`;
+        	    });
+        	});
+        }
+</script>
