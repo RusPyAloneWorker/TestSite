@@ -114,7 +114,7 @@ public class PassTestModel : PageModel
 			
 			var result = await _testResultRepository.AddTestResultAsync(testResultVM, new Guid(userId));
 			
-			var url = Url.Page("/TestResult", new { testResultId = Test.Id });
+			var url = Url.Page("/TestResult", new { testResultId = Test.Id })!;
 			return Redirect(url);
 		}
 

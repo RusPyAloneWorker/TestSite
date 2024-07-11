@@ -9,48 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60b26a64-ea44-4686-8728-e7e228facebc" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionOptionVm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionVm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/TestVm.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestResultRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/AnsweredQuestionModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestResultModel.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestResultRepository.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/UnitOfWork.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/ShowTests.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/ShowTests.cshtml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/TestResult.cshtml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/TestResult.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="60b26a64-ea44-4686-8728-e7e228facebc" name="Changes" comment="Добавил страницу просмотра тестов, прохождения и результата">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestSite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestSite/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionOptionVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/QuestionOptionVM.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/QuestionVM.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/TestVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/TestVM.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Question.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/QuestionOption.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/QuestionOption.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Test.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/AppDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestModel.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Mappings/DomainAndDbModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Mappings/DomainAndDbModelMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Mappings/ViewModelMapping.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Logout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Logout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Index.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_HeaderPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_HeaderPartial.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_Layout.cshtml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TestSite.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TestSite.Web/wwwroot/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/wwwroot/css/main.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +191,7 @@
       <workItem from="1720603280535" duration="1565000" />
       <workItem from="1720605935725" duration="21423000" />
       <workItem from="1720635166834" duration="23378000" />
-      <workItem from="1720682543253" duration="7078000" />
+      <workItem from="1720682543253" duration="7711000" />
     </task>
     <task id="LOCAL-00001" summary="Project">
       <option name="closed" value="true" />
@@ -247,7 +209,15 @@
       <option name="project" value="LOCAL" />
       <updated>1720475939594</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил страницу просмотра тестов, прохождения и результата">
+      <option name="closed" value="true" />
+      <created>1720689967199</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1720689967199</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -269,7 +239,8 @@
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Project" />
-    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <MESSAGE value="Добавил страницу просмотра тестов, прохождения и результата" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил страницу просмотра тестов, прохождения и результата" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -279,10 +250,10 @@
           <line>41</line>
           <properties documentPath="C:\Src\Cs\TestSite\TestSite.Web\Pages\CreateTest.cshtml.cs" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="912" />
+              <option value="927" />
             </startOffsets>
             <endOffsets>
-              <option value="913" />
+              <option value="928" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
@@ -364,6 +335,19 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="34" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestRepository.cs" containingFunctionPresentation="Method 'AddTestAsync'">
+            <startOffsets>
+              <option value="627" />
+            </startOffsets>
+            <endOffsets>
+              <option value="628" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="40" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

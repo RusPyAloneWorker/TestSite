@@ -38,11 +38,11 @@ public class CreateTestModel : PageModel
 		
 	}
 
-	public async Task OnPostAsync()
+	public async Task<IActionResult> OnPostAsync()
 	{
 		if (!ModelState.IsValid)
 		{
-			return;
+			return Page();
 		}
 		
 		var noRightAnswerQuestion = Test.Questions
@@ -86,6 +86,11 @@ public class CreateTestModel : PageModel
 			{
 				ModelState.AddModelError("GeneralError", result.Error);
 			}
+			
+			var url = Url.Page("/ShowTests")!;
+			return Redirect(url);
 		}
+
+		return Page();
 	}
 }
