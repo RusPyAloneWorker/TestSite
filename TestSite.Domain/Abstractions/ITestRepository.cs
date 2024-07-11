@@ -1,18 +1,18 @@
 ﻿using TestSite.Contracts;
-using TestSite.Contracts.ViewModels;
+using TestSite.Contracts.ViewInputModels;
 using TestEntity = TestSite.Domain.TestRoot.Test;
 
 namespace TestSite.Domain.Abstractions;
 
 public interface ITestRepository
 {
-	Task<Result<Guid>> AddTest(TestVM testVm);
+	Task<Result<Guid>> AddTestAsync(TestVM testVm, Guid userId);
 
-	Result EditTest(List<QuestionVM> newQuestions, Guid testId);
+	Result EditTestAsync(List<QuestionVM> newQuestions, Guid testId);
 
-	Result DeleteTest(Guid testId);
+	Result DeleteTestAsync(Guid testId);
 
-	Result<List<TestEntity>> GetTests();
+	Task<Result<List<TestEntity>>> GetTestsAsync();
 
-	Result<TestEntity> GetTestById(Guid testId);
+	Task<Result<TestEntity>> GetTestByIdAsync(Guid testId);
 }

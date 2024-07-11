@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using TestSite.Contracts;
-using TestSite.Contracts.ViewModels;
+using TestSite.Contracts.ViewInputModels;
+using TestSite.Domain;
 using TestSite.Domain.Abstractions;
 using TestSite.Domain.TestRoot;
 using TestSite.Infrastructure.DatabaseModels;
@@ -18,13 +20,22 @@ public class TestRepository: ITestRepository
 		_mapper = mapper;
 	}
 
-	public async Task<Result<Guid>> AddTest(TestVM testVm)
+	public async Task<Result<Guid>> AddTestAsync(TestVM testVm, Guid userId)
 	{
 		var guid = Guid.NewGuid();
 
 		try
 		{
-			var test = new Test(testVm, guid);
+			var user = await _dbContext
+				.Users
+				.FirstAsync(x => x.Id == userId.ToString());
+
+			if (user is null)
+			{
+				return new Result<Guid>(default, false, "User was not found");
+			}
+
+			var test = new Test(testVm, guid, userId, user);
 			var result = test.AddQuestions(testVm.Questions);
 
 			if (result.IsFailure)
@@ -48,23 +59,48 @@ public class TestRepository: ITestRepository
 		return new Result<Guid>(guid, true);
 	}
 
-	public Result EditTest(List<QuestionVM> newQuestions, Guid testId)
+	public Result EditTestAsync(List<QuestionVM> newQuestions, Guid testId)
 	{
 		throw new NotImplementedException();
 	}
 
-	public Result DeleteTest(Guid testId)
+	public Result DeleteTestAsync(Guid testId)
 	{
 		throw new NotImplementedException();
 	}
 
-	public Result<List<Test>> GetTests()
+	public async Task<Result<List<Test>>> GetTestsAsync()
 	{
-		throw new NotImplementedException();
+		var testModels = await _dbContext.Tests
+			.AsNoTracking()
+			.Include(x => x.User)
+			.Include(x => x.Questions)
+			.ThenInclude(x => x.QuestionOptions)
+			.AsNoTracking()
+			.ToListAsync();
+
+		var tests = _mapper.Map<List<TestModel>, List<Test>>(testModels);
+
+		return new Result<List<Test>>(tests, true);
 	}
 
-	public Result<Test> GetTestById(Guid testId)
+	public async Task<Result<Test>> GetTestByIdAsync(Guid testId)
 	{
-		throw new NotImplementedException();
+		var testModel = await _dbContext.Tests
+			.AsNoTracking()
+			.Include(x=>x.User)
+			.Include(x => x.Questions)
+			.ThenInclude(x => x.QuestionOptions)
+			.AsNoTracking()
+			.FirstOrDefaultAsync(x => x.Id == testId);
+
+		if (testModel is null)
+		{
+			return new Result<Test>(null, false, "Test not found");
+		}
+		
+		var test = _mapper.Map<TestModel, Test>(testModel);
+
+		return new Result<Test>(test, true);
 	}
 }

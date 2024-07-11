@@ -1,0 +1,37 @@
+@page
+@using Humanizer
+@model ShowTestsModel
+
+<!DOCTYPE html>
+
+<div class="text-center full-monitor">
+	<div class="test_creation-intro">
+		<section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg" data-bg-color="#140C1C" style='background-image: url("~/img/breadcrumb/breadcrumb-bg.jpg"); background-color: rgb(20, 12, 28);'>
+			<partial name="Shared/_HeaderPartial" />
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumb_content d-flex flex-column align-items-center">
+							<h2 class="title wow fadeInUp" data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Available Tests</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="tests-wrapper">
+		@foreach (var test in Model.Tests)
+		{
+			<div class="view-test-container card-content">
+				<div class="view-test-info">
+					<h3 class="view-test-title">@test.Title</h3>
+					<div class="view-test-description">@test.Description</div>
+					<div class="view-test-timespan">@test.TimeSpan minutes to pass</div>
+				</div>
+				<a asp-page="PassTest" asp-route-testId="@test.Id" style="color: white">
+					<div class="btn tj-btn-primary">Pass the test</div>
+				</a>
+			</div>	
+		}
+	</div>
+</div>

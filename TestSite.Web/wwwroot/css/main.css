@@ -3498,21 +3498,78 @@ ul, li {
 	padding-bottom: 11px;
 	margin-bottom: 10px;
 }
-.form-login-wrapper {
+.centered-block {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: center;
 }
-.form-login-wrapper form {
+.full-monitor {
+	min-height: 96vh;
+}
+.centered-block form {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
-.form-login-wrapper a {
+.centered-block a {
 	text-decoration: none;
 	margin-top: 10px;
 }
-.form-login-wrapper button {
+.centered-block button {
 	margin-bottom: 10px;
+}
+.test_creation-intro {
+	width: 100%;
+}
+.pass-test-content {
+	margin-top: 100px;
+}
+.test-description-wrapper {
+	margin-bottom: 150px;
+}
+.test-description-wrapper .description {
+	font-size: xxx-large;
+}
+.options-wrapper {
+	margin-top: 10px;
+	list-style: none;
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.option-wrapper {
+	display: flex;
+	justify-content: space-around;
+	width: 100px;
+	margin: 5px 0px 5px 0px;
+}
+.pass-test-form-wrapper div {
+	font-size: 18px;
+}
+.pass-test-form-wrapper .question-text {
+	font-size: 25px;
+}
+.pass-test-form-wrapper button {
+	margin: 50px;
+}
+.test-result{
+	margin-top:55px;
+	font-size: 23px;
+	font-weight: bold;
+}
+.tests-wrapper {
+	display: flex;
+	flex-direction: column;
+	margin-top: 70px;
+	margin-left: 350px;
+}
+.view-test-container {
+	display: flex;
+	max-width: fit-content;
+	padding: 10px;
+	background-color: #371c6a;
+	border-radius: 25px;
+	align-items: center;
 }

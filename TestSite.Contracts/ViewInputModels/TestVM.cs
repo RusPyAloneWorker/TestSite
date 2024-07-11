@@ -1,7 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
-namespace TestSite.Contracts.ViewModels;
+namespace TestSite.Contracts.ViewInputModels;
 
 public class TestVM
 {

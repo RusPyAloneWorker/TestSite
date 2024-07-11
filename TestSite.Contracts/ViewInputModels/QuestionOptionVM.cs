@@ -1,4 +1,4 @@
-﻿namespace TestSite.Contracts.ViewModels;
+﻿namespace TestSite.Contracts.ViewInputModels;
 
 public class QuestionOptionVM
 {

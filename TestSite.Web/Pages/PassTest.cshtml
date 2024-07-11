@@ -1,0 +1,125 @@
+@page
+@using Humanizer
+@model PassTestModel
+@{
+	ViewData["Title"] = "Test " + Model.Test.Title;
+}
+
+<div class="text-center full-monitor">
+	<div class="test_creation-intro">
+		<section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg" data-bg-color="#140C1C" style='background-image: url("~/img/breadcrumb/breadcrumb-bg.jpg"); background-color: rgb(20, 12, 28);'>
+			<partial name="Shared/_HeaderPartial" />
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumb_content d-flex flex-column align-items-center">
+							<h2 class="title wow fadeInUp" data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Pass The Test</h2>
+							<h2 class="title wow fadeInUp" data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;"><span>@Model.Test.Title</span></h2>
+							<div class="breadcrumb_navigation wow fadeInUp" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="pass-test-content">
+		<div class="test-description-wrapper">
+			<div>Description:</div>
+			<div class="description">
+				@Model.Test.Description
+			</div>
+			<div id="timer">Оставшееся время: 01:00</div>
+		</div>
+		<div class="pass-test-form-wrapper">
+			<form asp-for="@Model.Test" method="post" id="test-form">
+				<input asp-for="@Model.TestResult.TestId" hidden value="@Model.Test.Id" />
+				@for(var i = 0; i < Model.Test.Questions.Count; i++)
+				{
+					<div class="question-text">@Model.Test.Questions[i].Text</div>
+					<input hidden asp-for="@Model.TestResult.AnsweredQuestions[i].QuestionId" value="@Model.Test.Questions[i].Id"/>
+					
+					<div id="@Model.Test.Questions[i].Id" class="options-wrapper">
+						<span class="text-danger" asp-validation-for="@Model.TestResult.AnsweredQuestions[i]"></span>
+						@for (var n = 0; n < Model.Test.Questions[i].QuestionOptions.Count; n++)
+						{
+							<div class="option-wrapper">
+								<input hidden asp-for="@Model.TestResult.AnsweredQuestions[i].QuestionOptions[n].Id" value="@Model.Test.Questions[i].QuestionOptions[n].Id" />
+								<input asp-for="@Model.TestResult.AnsweredQuestions[i].QuestionOptions[n].IsChecked" type="checkbox" value="true">
+								<div class="option-text">@Model.Test.Questions[i].QuestionOptions[n].Text</div>
+							</div>
+						}
+
+						@{
+							var hasMultipleAnswers = Model.Test.Questions[i].HasMultipleAnswers;
+						}
+						@if (!hasMultipleAnswers)
+						{
+							<script>
+							let optionWrappers = document.getElementById('@Model.Test.Questions[i].Id');
+							let checkboxes = optionWrappers.querySelectorAll('input[type="checkbox"]');
+							checkboxes.forEach(checkbox => {
+								console.log(checkboxes);
+								checkbox.addEventListener('change', function () {
+									if (this.checked) {
+										checkboxes.forEach(box => {
+											if (box !== this) {
+												box.checked = false;
+											}
+										});
+									}
+								});
+							});
+						</script>
+						}
+					</div>
+				}
+				<button class="btn btn-dark" type="submit">Send result</button>
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	// Установка времени (в миллисекундах)
+	const totalTime = Number(@Model.Test.TimeSpan.TotalMilliseconds); 
+	let remainingTime = totalTime;
+
+	// Функция для обновления таймера на странице
+	function updateTimer() {
+		remainingTime -= 1000;
+		const minutes = Math.floor(remainingTime / 60000);
+		const seconds = Math.floor((remainingTime % 60000) / 1000);
+		document.getElementById('timer').textContent = `Оставшееся время: ${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+
+		if (remainingTime <= 0) {
+			submitForm();
+		}
+	}
+
+	// Функция отправки формы
+	function submitForm() {
+		document.getElementsByTagName('form')[0].submit();
+	}
+
+	// Функция для отправки запроса на сервер каждые 30 секунд
+	function sendTimeUpdate() {
+		fetch('https://localhost:7178/AddTime?testId=@Model.Test.Id', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({ message: '30 seconds passed' })
+		}).then(response => response.json())
+			.then(data => console.log('Success:', data))
+			.catch(error => console.error('Error:', error));
+	}
+
+	// Установка интервала для обновления таймера каждую секунду
+	setInterval(updateTimer, 1000);
+
+	// Установка интервала для отправки запроса каждые 30 секунд
+	setInterval(sendTimeUpdate, 30000);
+
+	// Установка таймера на автоматическую отправку формы
+	setTimeout(submitForm, totalTime);
+    </script>

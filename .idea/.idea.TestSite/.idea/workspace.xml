@@ -9,11 +9,57 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="60b26a64-ea44-4686-8728-e7e228facebc" name="Changes" comment="" />
+    <list default="true" id="60b26a64-ea44-4686-8728-e7e228facebc" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionOptionVm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionVm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/TestVm.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestResultRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/AnsweredQuestionModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestResultModel.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestResultRepository.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/UnitOfWork.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/PassTest.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/ShowTests.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/ShowTests.cshtml.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/TestResult.cshtml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TestSite.Web/Pages/TestResult.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestSite/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestSite/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionOptionVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/QuestionOptionVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/QuestionVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/QuestionVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Contracts/ViewModels/TestVM.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Contracts/ViewInputModels/TestVM.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/Abstractions/ITestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Question.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Question.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/QuestionOption.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/QuestionOption.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Test.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Domain/TestRoot/Test.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/AppDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/AppDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestModel.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestModel.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Migrations/AppDbContextModelSnapshot.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Mappings/DomainAndDbModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Mappings/DomainAndDbModelMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Mappings/ViewModelMapping.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Mappings/ViewModelMapping.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ConfirmEmail.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Login.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Login.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Logout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Logout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Register.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/Register.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/RegisterConfirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Areas/Identity/Pages/Account/ResendEmailConfirmation.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Index.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Index.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_HeaderPartial.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_HeaderPartial.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_Layout.cshtml" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Pages/Shared/_Layout.cshtml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TestSite.Web/wwwroot/css/main.css" beforeDir="false" afterPath="$PROJECT_DIR$/TestSite.Web/wwwroot/css/main.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -23,29 +69,61 @@
       </list>
     </option>
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;RusPyAloneWorker&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/RusPyAloneWorker/TestSite.git&quot;,
+    &quot;accountId&quot;: &quot;407b5768-a047-434e-b54b-ea0b20a2c729&quot;
+  }
+}</component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/TestSite.Contracts/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TestSite.Domain/TestResultRoot/TestResult.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Domain/TestRoot/Question.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Domain/TestRoot/QuestionOption.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Domain/TestRoot/Test.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/TestSite.Domain/User.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Infrastructure/DatabaseModels/TestModel.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Infrastructure/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="mock://C:/Src/Cs/TestSite/TestSite.Infrastructure/obj/Debug/net8.0/.NETCoreApp,Version=v8.0.AssemblyAttributes.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Web/Pages/Index.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Web/Pages/Shared/_Layout.cshtml" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/TestSite.Web/Program.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/1c5f107b8c1e403bb61cf0fd87ed879a110908/9b/e1963f07/AssemblyReference.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/2fa22577c3474356b3d077dd5a68cd7f6e918/f1/8d383d5e/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/5147b10c5a8c4522b56fba0a889139cfc8f908/a1/d246deb9/Monitor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/DecompilerCache/decompiler/d7c10cbe6c824d8fa2268810a51f3d3fb0b0/5e/980716bc/IdentityUser.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/16a8916fa6cc91647d6084cf3358697be586439df3f5ddca6aa969c5169bb8bc/SmtpClient.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/3eab2556a6e1dddc71dd7dd41efa5153ec50a4b7394940f26c808fcbb5dec9d/PageModel.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/5c77173b4dbdac69ea17b864754ccc536672c88948b96eea7ec3f1314f9eca1/ReflectionHelper.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/658ad1fa108317d78bcae889b6e4f9dd5327babb6582972f2dbeabf36dafa5/ServiceProvider.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/804891a5dc5685a3f7409f4e737c7018274e7af1aa111975a024fa3fc08e5c/ExecutorFactory.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/829d6ac6e62b9bee9ef8e79e827d87d0c31a7c2eefbc354135d9a8f2c4deb/Mapper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/9eda537f15ea23cdfae523c19e87eb303a3ded88937ae7e55919387a43f70/ExecutionContext.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/a19cf9c75112ee465e80713b8a26c399c5b79ea491e1e9455959179d3cbad7d6/DefaultPageModelFactoryProvider.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/bd1d5c50194fea68ff3559c160230b0ab50f5acf4ce3061bffd6d62958e2182/ExceptionDispatchInfo.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/ee8fd17bdc879c2938575f9eb07ae08f3ef1c686037b78dc093f94b6bbba9/IEmailSender.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/JetBrains/Shared/vAny/SourcesCache/fb367341658aaedd7de424d4c9189db33c4387e268dcc4011918569442ab12/AsyncTaskMethodBuilderT.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/087e15321bb712ef6fe8b0ba6f8bd12facf92629/src/libraries/System.Private.CoreLib/src/System/ArgumentNullException.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/AppData/Local/Symbols/src/dotnet/runtime/087e15321bb712ef6fe8b0ba6f8bd12facf92629/src/libraries/System.Private.CoreLib/src/System/Threading/Tasks/TaskContinuation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Downloads/HT.ITIS/Dotnet.Homeworks.Infrastructure/Utils/Result.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="SWEA" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2ipQkpuP8HRg8lfexW0wwi01kPQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -54,15 +132,19 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.TestSite: https.executor&quot;: &quot;Debug&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.stylelint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.stylelint&quot;: &quot;&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.sourceCode.ASP.NET (Razor)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
   &quot;keyToStringList&quot;: {
@@ -139,6 +221,15 @@
       <workItem from="1720426411135" duration="17087000" />
       <workItem from="1720460815300" duration="15056000" />
       <workItem from="1720476455095" duration="360000" />
+      <workItem from="1720477291522" duration="473000" />
+      <workItem from="1720518478119" duration="19878000" />
+      <workItem from="1720545652453" duration="3408000" />
+      <workItem from="1720552679813" duration="11285000" />
+      <workItem from="1720600658629" duration="252000" />
+      <workItem from="1720603280535" duration="1565000" />
+      <workItem from="1720605935725" duration="21423000" />
+      <workItem from="1720635166834" duration="23378000" />
+      <workItem from="1720682543253" duration="7078000" />
     </task>
     <task id="LOCAL-00001" summary="Project">
       <option name="closed" value="true" />
@@ -163,6 +254,18 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
     <MESSAGE value="Project" />
@@ -172,27 +275,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs</url>
-          <line>26</line>
-          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestRepository.cs" initialLine="26" containingFunctionPresentation="Method 'AddTest'">
-            <startOffsets>
-              <option value="589" />
-            </startOffsets>
-            <endOffsets>
-              <option value="623" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="3" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TestSite.Web/Pages/CreateTest.cshtml.cs</url>
-          <line>36</line>
-          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Web\Pages\CreateTest.cshtml.cs" initialLine="35" containingFunctionPresentation="Method 'OnPostAsync'">
+          <line>41</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Web\Pages\CreateTest.cshtml.cs" containingFunctionPresentation="Method 'OnPostAsync'">
             <startOffsets>
-              <option value="779" />
+              <option value="912" />
             </startOffsets>
             <endOffsets>
-              <option value="780" />
+              <option value="913" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="7" />
@@ -200,7 +290,7 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/TestSite.Infrastructure/EmailInfrastructure/EmailSender.cs</url>
           <line>19</line>
-          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\EmailInfrastructure\EmailSender.cs" initialLine="18" containingFunctionPresentation="Method 'SendEmailAsync'">
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\EmailInfrastructure\EmailSender.cs" containingFunctionPresentation="Method 'SendEmailAsync'">
             <startOffsets>
               <option value="535" />
             </startOffsets>
@@ -209,6 +299,71 @@
             </endOffsets>
           </properties>
           <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestRepository.cs</url>
+          <line>46</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestRepository.cs" containingFunctionPresentation="Method 'AddTest'">
+            <startOffsets>
+              <option value="1125" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1157" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestResultRepository.cs</url>
+          <line>126</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestResultRepository.cs" containingFunctionPresentation="Method 'CreateTestCompletionStatusAsync'">
+            <startOffsets>
+              <option value="3759" />
+            </startOffsets>
+            <endOffsets>
+              <option value="3760" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestResultRepository.cs</url>
+          <line>69</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestResultRepository.cs" containingFunctionPresentation="Method 'GetTestResultByIdAsync'">
+            <startOffsets>
+              <option value="1971" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1972" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Web/Pages/TestResult.cshtml.cs</url>
+          <line>26</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Web\Pages\TestResult.cshtml.cs" containingFunctionPresentation="Method 'OnGet'">
+            <startOffsets>
+              <option value="762" />
+            </startOffsets>
+            <endOffsets>
+              <option value="763" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/TestSite.Infrastructure/Repositories/TestResultRepository.cs</url>
+          <line>23</line>
+          <properties documentPath="C:\Src\Cs\TestSite\TestSite.Infrastructure\Repositories\TestResultRepository.cs" containingFunctionPresentation="Method 'AddTestResultAsync'">
+            <startOffsets>
+              <option value="652" />
+            </startOffsets>
+            <endOffsets>
+              <option value="676" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

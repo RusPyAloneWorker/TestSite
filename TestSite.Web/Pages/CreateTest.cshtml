@@ -3,36 +3,33 @@
 @{
 	ViewData["Title"] = "Create Test";
 }
-
 <style src="~/css/test-creation.css"></style>
 
-<div class="text-center" style="height: 9000px">
+<div class="text-center full-monitor">
 	<div class="test_creation-intro">
 		<section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg" data-bg-color="#140C1C" style='background-image: url("~/img/breadcrumb/breadcrumb-bg.jpg"); background-color: rgb(20, 12, 28);'>
+			<partial name="Shared/_HeaderPartial"/>
 			<div class="container">
 				<div class="row">
 					<div class="col">
 						<div class="breadcrumb_content d-flex flex-column align-items-center">
-							<h2 class="title wow fadeInUp"  data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Test creation</h2>
+							<h2 class="title wow fadeInUp" data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Test creation</h2>
 						</div>
 					</div>
 				</div>
 			</div>
 		</section>
 	</div>
-	
+
 	<div class="test_creation-form-wrapper column" style="margin-top: 50px">
 		<form class="test_creation-form-content" method="POST">
+			<span class="text-danger" asp-validation-for="GeneralError"></span>
 			<span class="text-danger" asp-validation-for="Test.Questions"></span>
-			@* @Html.ValidationMessageFor(x => x.Test.Questions,"", new { @class = "text-danger" }) *@
 			<input asp-for="Test.Title" class="property-input" placeholder="Title" />
 			<span class="text-danger" asp-validation-for="Test.Title"></span>
 			<textarea name="Test.Description" class="property-input" placeholder="Description"></textarea>
-			@* <textarea asp-for="Test.Description" class="property-input" placeholder="Description"></textarea> *@
 			<span class="text-danger" asp-validation-for="Test.Description"></span>
-			@* @Html.ValidationMessageFor(x => x.Test.Description,"Required", new { @class = "text-danger" }) *@
 			<input asp-for="Test.TimeSpan" class="property-input" placeholder="Minutes to do the test" />
-			@* @Html.ValidationMessageFor(x => x.Test.TimeSpan,"Required", new { @class = "text-danger" }) *@
 			<span class="text-danger" asp-validation-for="Test.TimeSpan"></span>
 			<div id="questions-container"></div>
 			<button class="btn tj-btn-primary question-btn" type="button" onclick="addQuestion()">Add new question</button>
@@ -91,7 +88,7 @@
 
         function removeLastAnswer(questionId) {
             const answersContainer = document.getElementById(`answers-${questionId}`);
-            const answerItems = answersContainer.getElementsByTagTitle('li');
+            const answerItems = answersContainer.getElementsByTagName('li');
             if (answerItems.length > 0) {
                 answersContainer.removeChild(answerItems[answerItems.length - 1]);
             }

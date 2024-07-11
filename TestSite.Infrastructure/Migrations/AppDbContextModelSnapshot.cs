@@ -22,6 +22,21 @@ namespace TestSite.Infrastructure.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
+            modelBuilder.Entity("AnsweredQuestionModelQuestionOptionModel", b =>
+                {
+                    b.Property<Guid>("AnsweredQuestionModelId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("QuestionOptionsId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("AnsweredQuestionModelId", "QuestionOptionsId");
+
+                    b.HasIndex("QuestionOptionsId");
+
+                    b.ToTable("AnsweredQuestionModelQuestionOptionModel");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
                     b.Property<string>("Id")
@@ -31,7 +46,7 @@ namespace TestSite.Infrastructure.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("text");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .HasMaxLength(256)
                         .HasColumnType("character varying(256)");
 
@@ -143,15 +158,46 @@ namespace TestSite.Infrastructure.Migrations
                     b.Property<string>("LoginProvider")
                         .HasColumnType("text");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .HasColumnType("text");
 
                     b.Property<string>("Value")
                         .HasColumnType("text");
 
-                    b.HasKey("UserId", "LoginProvider", "Title");
+                    b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens", (string)null);
+                });
+
+            modelBuilder.Entity("TestSite.Domain.TestResultRoot.TestCompletionStatusModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<bool>("IsOver")
+                        .HasColumnType("boolean");
+
+                    b.Property<int>("Retries")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("TestId")
+                        .HasColumnType("uuid");
+
+                    b.Property<TimeSpan>("TimePassed")
+                        .HasColumnType("interval");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TestId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TestCompletionStatuses");
                 });
 
             modelBuilder.Entity("TestSite.Domain.User", b =>
@@ -179,7 +225,7 @@ namespace TestSite.Infrastructure.Migrations
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("Title")
+                    b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(30)
                         .HasColumnType("character varying(30)");
@@ -221,6 +267,27 @@ namespace TestSite.Infrastructure.Migrations
                         .HasDatabaseName("UserNameIndex");
 
                     b.ToTable("AspNetUsers", (string)null);
+                });
+
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.AnsweredQuestionModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("QuestionId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("TestResultModelId")
+                        .HasColumnType("uuid");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("QuestionId");
+
+                    b.HasIndex("TestResultModelId");
+
+                    b.ToTable("AnsweredQuestions");
                 });
 
             modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.QuestionModel", b =>
@@ -286,9 +353,51 @@ namespace TestSite.Infrastructure.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("text");
+
                     b.HasKey("Id");
 
+                    b.HasIndex("UserId");
+
                     b.ToTable("Tests");
+                });
+
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.TestResultModel", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("TestId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UserId")
+                        .HasColumnType("text");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("TestId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("TestResults");
+                });
+
+            modelBuilder.Entity("AnsweredQuestionModelQuestionOptionModel", b =>
+                {
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.AnsweredQuestionModel", null)
+                        .WithMany()
+                        .HasForeignKey("AnsweredQuestionModelId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.QuestionOptionModel", null)
+                        .WithMany()
+                        .HasForeignKey("QuestionOptionsId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -342,6 +451,40 @@ namespace TestSite.Infrastructure.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("TestSite.Domain.TestResultRoot.TestCompletionStatusModel", b =>
+                {
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.TestModel", "Test")
+                        .WithMany()
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestSite.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Test");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.AnsweredQuestionModel", b =>
+                {
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.QuestionModel", "Question")
+                        .WithMany()
+                        .HasForeignKey("QuestionId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.TestResultModel", null)
+                        .WithMany("AnsweredQuestions")
+                        .HasForeignKey("TestResultModelId");
+
+                    b.Navigation("Question");
+                });
+
             modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.QuestionModel", b =>
                 {
                     b.HasOne("TestSite.Infrastructure.DatabaseModels.TestModel", "Test")
@@ -364,6 +507,34 @@ namespace TestSite.Infrastructure.Migrations
                     b.Navigation("Question");
                 });
 
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.TestModel", b =>
+                {
+                    b.HasOne("TestSite.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.TestResultModel", b =>
+                {
+                    b.HasOne("TestSite.Infrastructure.DatabaseModels.TestModel", "Test")
+                        .WithMany()
+                        .HasForeignKey("TestId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("TestSite.Domain.User", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId");
+
+                    b.Navigation("Test");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.QuestionModel", b =>
                 {
                     b.Navigation("QuestionOptions");
@@ -372,6 +543,11 @@ namespace TestSite.Infrastructure.Migrations
             modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.TestModel", b =>
                 {
                     b.Navigation("Questions");
+                });
+
+            modelBuilder.Entity("TestSite.Infrastructure.DatabaseModels.TestResultModel", b =>
+                {
+                    b.Navigation("AnsweredQuestions");
                 });
 #pragma warning restore 612, 618
         }

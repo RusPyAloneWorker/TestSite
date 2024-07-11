@@ -19,4 +19,8 @@ public class QuestionOption: Entity
 		IsCorrect = isCorrect;
 		Text = text;
 	}
+	
+	private QuestionOption()
+		:base(Guid.NewGuid())
+	{ }
 }

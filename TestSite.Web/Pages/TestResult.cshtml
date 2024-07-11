@@ -1,0 +1,24 @@
+@page
+@model TestSite.Pages.TestResultModel
+
+<!DOCTYPE html>
+
+<div class="text-center full-monitor">
+	<div class="test_creation-intro">
+		<section class="breadcrumb_area" data-bg-image="./assets/img/breadcrumb/breadcrumb-bg.jpg" data-bg-color="#140C1C" style='background-image: url("~/img/breadcrumb/breadcrumb-bg.jpg"); background-color: rgb(20, 12, 28);'>
+			<partial name="Shared/_HeaderPartial" />
+			<div class="container">
+				<div class="row">
+					<div class="col">
+						<div class="breadcrumb_content d-flex flex-column align-items-center">
+							<h2 class="title wow fadeInUp" data-wow-delay=".3s" style="font-size: 80px; visibility: visible; animation-delay: 0.3s; animation-title: fadeInUp;">Test Result</h2>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="test-result">
+		Correct Answers: @Model.RightAnswers / @Model.Result.AnsweredQuestions.Count
+	</div>
+</div>

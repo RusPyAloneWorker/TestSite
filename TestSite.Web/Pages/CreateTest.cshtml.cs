@@ -1,13 +1,16 @@
 using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using TestSite.Contracts.ViewModels;
+using TestSite.Contracts.ViewInputModels;
 using TestSite.Domain.Abstractions;
 
 namespace TestSite.Pages;
 
 [IgnoreAntiforgeryToken]
+[Authorize]
 public class CreateTestModel : PageModel
 {
 	private readonly ILogger<ErrorModel> _logger;
@@ -17,6 +20,8 @@ public class CreateTestModel : PageModel
 	[BindProperty]
 	[Required(ErrorMessage = "")]
 	public TestVM Test { get; set; }
+	
+	public string GeneralError { get; set; }
 
 	public CreateTestModel(
 		ILogger<ErrorModel> logger, 
@@ -65,10 +70,22 @@ public class CreateTestModel : PageModel
 				@"Some question has multiple correct options but checkbox ""Can have multiple answers"" was not toggled"
 			);
 		}
+
+		var userIdString = User.Claims.FirstOrDefault(x => x.Type == ClaimTypes.NameIdentifier)?.Value;
+		
+		if (userIdString is null || !Guid.TryParse(userIdString, out var userId))
+		{
+			throw new SystemException("Couldn't get id");
+		}
 		
 		if (ModelState.IsValid)
 		{
-			await _testRepository.AddTest(Test);	
+			var result = await _testRepository.AddTestAsync(Test, userId);	
+			
+			if (result.IsFailure && result.Error is not null)
+			{
+				ModelState.AddModelError("GeneralError", result.Error);
+			}
 		}
 	}
 }

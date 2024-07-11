@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 using TestSite.Contracts;
-using TestSite.Contracts.ViewModels;
+using TestSite.Contracts.ViewInputModels;
 using TestSite.Domain.Primitives;
 
 namespace TestSite.Domain.TestRoot;
@@ -13,11 +13,21 @@ public class Test : AggregateRoot
 	private readonly List<Question> _questions;
 	
 	#region Constants
-	private static readonly TimeSpan MinTimeSpan = new (0, 5, 0);
+	private static readonly TimeSpan MinTimeSpan = new (0, 1, 0);
 	
 	private static readonly TimeSpan MaxTimeSpan = new (0, 50, 0);
 	#endregion
 
+	/// <summary>
+	/// Идентификатор создателя теста.
+	/// </summary>
+	public Guid UserId { get; set; }
+	
+	/// <summary>
+	/// Создатель теста.
+	/// </summary>
+	public User User { get; set; }
+	
 	/// <summary>
 	/// Название теста.
 	/// </summary>
@@ -38,11 +48,11 @@ public class Test : AggregateRoot
 	/// </summary>
 	public TimeSpan TimeSpan { get; private set; }
 
-	public Test(TestVM testVm, Guid id)
-		: this(testVm.Title, testVm.Description, new TimeSpan(0, testVm.TimeSpan, 0), id)
+	public Test(TestVM testVm, Guid id, Guid userId, User user)
+		: this(testVm.Title, testVm.Description, new TimeSpan(0, testVm.TimeSpan, 0), id, userId, user)
 	{ }
 	
-	public Test(string title, string description, TimeSpan timeSpan, Guid id) 
+	public Test(string title, string description, TimeSpan timeSpan, Guid id, Guid userId, User user) 
 		: base(id)
 	{
 		if (string.IsNullOrWhiteSpace(title))
@@ -60,10 +70,17 @@ public class Test : AggregateRoot
 			throw new ArgumentException($"Timer is out of bound. Must be between {MinTimeSpan.Minutes} and {MaxTimeSpan.Minutes} minutes");
 		}
 
+		if (userId == Guid.Empty || user is null)
+		{
+			throw new ArgumentException("No user provided.");
+		}
+
 		Title = title;
 		Description = description;
 		_questions = new List<Question>();
 		TimeSpan = timeSpan;
+		UserId = userId;
+		User = user;
 	}
 
 	public Result AddQuestion(QuestionVM questionVm)

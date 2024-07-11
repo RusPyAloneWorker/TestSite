@@ -4,7 +4,7 @@ namespace TestSite.Domain.TestRoot;
 
 public class Question : Entity
 {
-	public bool HasMultipleAnswers { get; private set; } = true;
+	public bool HasMultipleAnswers { get; private set; } 
 	public string Text { get; private set; }
 	public List<QuestionOption> Answers { get; private set; } 
 
@@ -37,4 +37,8 @@ public class Question : Entity
 		Text = text;
 		Answers = answers;
 	}
+	
+	private Question() 
+		: base(Guid.NewGuid()) 
+	{ }
 }
