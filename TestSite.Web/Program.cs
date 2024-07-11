@@ -107,4 +107,7 @@ app.UseAuthorization();
 
 app.MapRazorPages();
 
+await using var dataContext = app.Services.CreateScope().ServiceProvider.GetService<AppDbContext>()!;
+await dataContext.Database.MigrateAsync();
+
 app.Run();
