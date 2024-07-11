@@ -2,10 +2,24 @@
 
 namespace TestSite.Domain.TestRoot;
 
+/// <summary>
+/// Вопрос.
+/// </summary>
 public class Question : Entity
 {
+	/// <summary>
+	/// Имеет ли несколько ответов.
+	/// </summary>
 	public bool HasMultipleAnswers { get; private set; } 
+	
+	/// <summary>
+	/// Текст ответа.
+	/// </summary>
 	public string Text { get; private set; }
+	
+	/// <summary>
+	/// Варианты ответов.
+	/// </summary>
 	public List<QuestionOption> Answers { get; private set; } 
 
 	internal Question(string text, List<QuestionOption> answers, Guid id, bool hasMultipleAnswers = true) 
